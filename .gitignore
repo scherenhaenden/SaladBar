@@ -5,3 +5,8 @@ obj/
 /bin/
 //bin/
 bin/
+
+# Rider
+/.idea/
+.idea/
+///.idea/

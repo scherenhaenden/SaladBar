@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaladBarBackEnd", "SaladBarBackEnd\SaladBarBackEnd.csproj", "{5AD9C03A-45AD-4D69-A561-1372BB4E5922}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaladBarBackend.DockerLib", "SaladBarBackend.DockerLib\SaladBarBackend.DockerLib.csproj", "{9503CA1E-518D-435B-B5E2-EA8726F3126D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaladBarBackend.DockerLib.Tests", "SaladBarBackend.DockerLib.Tests\SaladBarBackend.DockerLib.Tests.csproj", "{4B2E3A3A-7BA8-4E4B-A680-0FA85AD3A847}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5AD9C03A-45AD-4D69-A561-1372BB4E5922}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AD9C03A-45AD-4D69-A561-1372BB4E5922}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AD9C03A-45AD-4D69-A561-1372BB4E5922}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AD9C03A-45AD-4D69-A561-1372BB4E5922}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9503CA1E-518D-435B-B5E2-EA8726F3126D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9503CA1E-518D-435B-B5E2-EA8726F3126D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9503CA1E-518D-435B-B5E2-EA8726F3126D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9503CA1E-518D-435B-B5E2-EA8726F3126D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B2E3A3A-7BA8-4E4B-A680-0FA85AD3A847}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B2E3A3A-7BA8-4E4B-A680-0FA85AD3A847}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B2E3A3A-7BA8-4E4B-A680-0FA85AD3A847}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B2E3A3A-7BA8-4E4B-A680-0FA85AD3A847}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
