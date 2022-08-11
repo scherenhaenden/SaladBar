@@ -1,1 +1,7 @@
-SaladBarBackEnd/SaladBarBackEnd/obj/
+# Dotnet directories
+/obj/
+//obj/
+obj/
+/bin/
+//bin/
+bin/
