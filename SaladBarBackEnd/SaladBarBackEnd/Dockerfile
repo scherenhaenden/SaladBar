@@ -1,20 +1,22 @@
-﻿FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
+﻿# I'm using copilot
+# Download the stable version of the Docker Hub image for the .NET Core runtime: 
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build-env
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-WORKDIR /src
-COPY ["SaladBarBackEnd/SaladBarBackEnd.csproj", "SaladBarBackEnd/"]
-RUN dotnet restore "SaladBarBackEnd/SaladBarBackEnd.csproj"
-COPY . .
-WORKDIR "/src/SaladBarBackEnd"
-RUN dotnet build "SaladBarBackEnd.csproj" -c Release -o /app/build
+# Copy csproj and restore as distinct layers
+COPY *.csproj ./
+RUN dotnet restore
 
-FROM build AS publish
-RUN dotnet publish "SaladBarBackEnd.csproj" -c Release -o /app/publish
+# Copy everything else and build
+COPY ./ ./
+RUN dotnet publish -c Debug -o out
 
-FROM base AS final
+# Build runtime image
+FROM mcr.microsoft.com/dotnet/aspnet:6.0
 WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "SaladBarBackEnd.dll"]
+COPY --from=build-env /app/out .
+# IMPORTANT: still got to test which one is the right one
+RUN export ASPNETCORE_ENVIRONMENT=Development
+ENTRYPOINT ["dotnet", "SaladBarBackEnd.dll", "--environment=Development"]
