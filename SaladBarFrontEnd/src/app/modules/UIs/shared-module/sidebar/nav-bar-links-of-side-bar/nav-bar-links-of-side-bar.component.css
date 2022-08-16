@@ -2,7 +2,29 @@
 .feather {
   width: 16px;
   height: 16px;
+
+}
+
+i-feather {
+  /*display: inline-flex;
+  width: 16px !important;
+  height: 16px !important;*/
+
+}
+
+app-icon-view {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+/*#sidebarMenu > div > ul:nth-child(1) > app-nav-bar-links-of-side-bar:nth-child(1) > li > a > app-icon-view > i-feather*/
+
+app-icon-view , i-feather {
   display: inline-flex;
+  width: 16px !important;
+  height: 16px !important;
+  margin-bottom: 10px;
+
 }
 
 /*

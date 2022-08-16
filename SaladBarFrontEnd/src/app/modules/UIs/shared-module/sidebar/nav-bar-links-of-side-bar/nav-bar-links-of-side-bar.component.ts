@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { IconFamily } from '../models/icon-family';
 import { SideBarLinkModel } from '../models/side-bar-link-model';
 
 @Component({
@@ -9,10 +10,12 @@ import { SideBarLinkModel } from '../models/side-bar-link-model';
 export class NavBarLinksOfSideBarComponent implements OnInit {
 
   @Input() sideBarLinkObject!: SideBarLinkModel;
+  @Input() isLinkActive: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
   }
+
 
 }
