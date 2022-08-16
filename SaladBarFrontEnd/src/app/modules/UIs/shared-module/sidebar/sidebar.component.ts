@@ -47,8 +47,7 @@ export class SidebarComponent implements OnInit {
     this.sideBarLinkObjects.push(sideBarLinkObject1);
     this.sideBarLinkObjects.push(sideBarLinkObject2);
     this.sideBarLinkObjects.push(sideBarLinkObject3);
-    this.sideBarLinkObjects.push(sideBarLinkObject1);
-    this.sideBarLinkObjects.push(sideBarLinkObject1);
+
   }
 
 }
