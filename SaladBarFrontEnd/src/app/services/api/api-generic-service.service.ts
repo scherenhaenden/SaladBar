@@ -14,10 +14,10 @@ export class ApiGenericServiceService {
   // TODO: extend this to support other methods like POST, PUT, DELETE
   // TODO: extend get to support headers and other options
 
-  public async get<T>(apiUrl: string): Promise<T> {
+  public get<T>(apiUrl: string): Promise<Response> {
 
     // Use fetch with headers and method
-    return fetch(apiUrl, { method: 'GET', headers: { 'Content-Type': 'application/json' } }).then(response => response as unknown as T );
+    return fetch(apiUrl, { method: 'GET', headers: { 'Content-Type': 'application/json' } });
 
 
 
