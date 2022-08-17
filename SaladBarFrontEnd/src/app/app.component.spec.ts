@@ -26,10 +26,12 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('SaladBarFrontEnd');
   });
 
-  it('should render title', () => {
+  it('should exist header', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('SaladBarFrontEnd app is running!');
+    console.log('compiled', compiled);
+    console.log('compiled', compiled.querySelector('header'));
+    expect(compiled.querySelector('header')).toBeTruthy();
   });
 });
