@@ -1,0 +1,14 @@
+version: "3.7"
+services:  
+  api:
+    build: 
+      context: "./SaladBarBackEnd/"
+      dockerfile: "SaladBarBackEnd/Dockerfile.development"
+    network_mode: "bridge"    
+    ports:
+      - "9995:80"
+      - "9996:5000"      
+    container_name: "salatbar-backend"
+    volumes:
+      - ./SaladBarBackEnd/wwwroot/:/var/www/
+      - /var/run/docker.sock:/var/run/docker.sock
