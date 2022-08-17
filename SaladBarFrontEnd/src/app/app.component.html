@@ -85,31 +85,7 @@
         </div>
       </div>
 
-      <div *ngIf="dockerImages" class="row">
-        <div *ngFor="let item of dockerImages" class="col-md-6 col-lg-5 col-xl-2">
-
-          <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">{{item.containers}}</h5>
-              <h6 class="card-subtitle mb-2 text-muted">{{item.size}}</h6>
-              <h6 class="card-subtitle mb-2 text-muted">{{item.virtualSize}}</h6>
-              <p class="card-text">{{item.id}}</p>
-              <p class="card-text">{{item.created}}</p>
-              <p class="card-text">{{item.repoDigests}}</p>
-              <p class="card-text">{{item.sharedSize}}</p>
-              <p class="card-text">{{item.created}}</p>
-              <a href="#" class="card-link">More Details</a>
-              <a href="#" class="card-link">Update</a>
-            </div>
-          </div>
-
-        </div>
-
-
-
-
-      </div>
-
+      <app-docker-images-board></app-docker-images-board>
 
 
 

@@ -10,6 +10,7 @@ import { DockerImagesBoardComponent } from './docker-images-board/docker-images-
   ],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [DockerImagesBoardComponent]
 })
 export class DockerModulesModule { }
