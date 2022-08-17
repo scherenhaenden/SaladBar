@@ -11,6 +11,9 @@ export class ApiGenericServiceService {
   constructor(private http: HttpClient) { }
 
 
+  // TODO: extend this to support other methods like POST, PUT, DELETE
+  // TODO: extend get to support headers and other options
+
   public async get<T>(apiUrl: string): Promise<T> {
 
     // Use fetch with headers and method
