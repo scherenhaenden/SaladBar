@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { lastValueFrom } from 'rxjs';
+import { ApiGenericServiceViaHttpClientService } from './services/api/api-generic-service-via-http-client.service';
 import { ApiGenericServiceService } from './services/api/api-generic-service.service';
 
 @Component({
@@ -9,8 +11,11 @@ import { ApiGenericServiceService } from './services/api/api-generic-service.ser
 export class AppComponent {
   title = 'SaladBarFrontEnd';
 
-  constructor(private apiGenericServiceService: ApiGenericServiceService) {
-    this.test();
+  constructor(
+    private apiGenericServiceService: ApiGenericServiceService,
+    private apiGenericServiceViaHttpClientService: ApiGenericServiceViaHttpClientService
+    ) {
+
 
   }
 
@@ -21,8 +26,6 @@ export class AppComponent {
     console.log(result);
 
 
-  });
-}
-
-
+    });
+  }
 }

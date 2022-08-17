@@ -10,11 +10,11 @@ export class ApiGenericServiceViaHttpClientService {
 
   constructor(private http: HttpClient) { }
 
-  private apiUrl = environment.apiUrl;
+
 
   public get(endpoint: string): Promise<any> {
 
-    return lastValueFrom(this.http.get(this.apiUrl + endpoint));
+    return lastValueFrom(this.http.get(endpoint));
 
   }
 }
