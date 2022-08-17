@@ -12,6 +12,13 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    // Add Simple cors policy for development.
+    app.UseCors(builder => builder
+        .AllowAnyHeader()
+        .AllowAnyMethod()
+        .SetIsOriginAllowed((host) => true)
+        .AllowCredentials()
+    );
     app.UseSwagger();
     app.UseSwaggerUI();
 }
