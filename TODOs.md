@@ -12,10 +12,10 @@
 
 ## Version 0.1
 - [ ] Create Github Action responsible for creating new releases
-- [ ] BE: Make it run in Docker (simple configuration)
 - [ ] FE: Show List of Volumes
 - [ ] FE: Show List of Networks
 - [ ] FE: Show List of Containers
+- [x] BE: Make it run in Docker (simple configuration)
 - [x] FE: Show List of Images
 - [x] FE: Add Dashboard
 - [x] FE: Create a Dynamic menu draft.
