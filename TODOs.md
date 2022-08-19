@@ -21,7 +21,6 @@
 - [x] FE: Create a Dynamic menu draft.
 - [x] Test the first Function gathering information of all Docker images
 - [x] Adopt first design for FE
-- [x] Adopt first design for FE
 - [x] Backend in Dotnet is set and working
 - [x] Frontend in Angular is set and working
 - [x] Api can connect with Docker
