@@ -13,3 +13,4 @@ bin/
 
 #MacFiles
 .DS_Store
+output/
