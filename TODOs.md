@@ -24,7 +24,7 @@
 - [ ] FE: Show List of Containers
 
 ## Version 0.1
-- [ ] Create build
+- [x] Create builder and runner (draft)
 - [x] BE: Make it run in Docker (simple configuration)
 - [x] FE: Show List of Images
 - [x] FE: Add Dashboard
