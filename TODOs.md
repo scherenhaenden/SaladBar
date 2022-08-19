@@ -11,6 +11,7 @@
 
 
 ## Version 0.1
+- [ ] Create Github Action responsible for creating new releases
 - [ ] BE: Make it run in Docker (simple configuration)
 - [ ] FE: Show List of Volumes
 - [ ] FE: Show List of Networks
