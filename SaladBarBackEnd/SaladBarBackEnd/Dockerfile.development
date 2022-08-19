@@ -5,12 +5,22 @@ WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
+RUN ls
+RUN pwd
+
+COPY ./ ./
+
+RUN ls
+RUN pwd
+
 # Copy csproj and restore as distinct layers
-COPY *.csproj ./
+#COPY *.csproj ./
+RUN ls
 RUN dotnet restore
 
 # Copy everything else and build
-COPY ./ ./
+#COPY ./ ./
+#RUN ls
 RUN dotnet publish -c Debug -o out
 
 # Build runtime image

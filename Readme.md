@@ -9,3 +9,7 @@ I'd like to be able to get the builds from my repository and ship em into Docker
 - generate a configuration for the deployment (lane)s and stuff like that
 
 to be continued... 
+
+## Run using Docker 
+
+In Linux use following command ```docker-compose -f ./docker-compose.development.yml up```

@@ -10,3 +10,7 @@ bin/
 /.idea/
 .idea/
 ///.idea/
+
+#MacFiles
+.DS_Store
+output/
