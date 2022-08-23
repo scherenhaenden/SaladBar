@@ -4,9 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { SharedModuleModule } from './modules/UIs/shared-module/shared-module.module';
 import { HttpClientModule } from '@angular/common/http';
 import { DockerModulesModule } from './modules/docker/docker-modules/docker-modules.module';
+import { SharedModuleModule } from './modules/shared-module/shared-module.module';
 
 @NgModule({
   declarations: [
