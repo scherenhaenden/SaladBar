@@ -22,6 +22,7 @@
 - [ ] FE: Show List of Volumes
 - [ ] FE: Show List of Networks
 - [ ] FE: Show List of Containers
+- [ ] Delete Unneeded core (Techdeb)
 
 ## Version 0.1
 - [x] Create builder and runner (draft)
