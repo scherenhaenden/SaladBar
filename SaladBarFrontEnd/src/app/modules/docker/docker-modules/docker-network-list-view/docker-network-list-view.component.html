@@ -1,1 +1,18 @@
-<p>docker-network-list-view works!</p>
+<div *ngIf="cardView" class="row">
+  <div *ngFor="let item of cardView" class="col-md-6 col-lg-5 col-xl-2">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{item.title}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{item.subtitle1}}</h6>
+        <h6 class="card-subtitle mb-2 text-muted">{{item.subtitle2}}</h6>
+        <p class="card-text">{{item.cardText1}}</p>
+        <p class="card-text">{{item.cardText2}}</p>
+        <p class="card-text">{{item.cardText3}}</p>
+        <p class="card-text">{{item.cardText4}}</p>
+        <p class="card-text">{{item.cardText5}}</p>
+        <a href="{{item.cardLink1.link}}" class="card-link">{{item.cardLink1.text}}</a>
+        <a href="{{item.cardLink2.link}}" class="card-link">{{item.cardLink2.text}}</a>
+      </div>
+    </div>
+  </div>
+</div>

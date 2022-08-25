@@ -19,6 +19,6 @@ import { DockerGenericListViewComponent } from './docker-generic-list-view/docke
   imports: [
     CommonModule
   ],
-  exports: [DockerImagesBoardComponent]
+  exports: [DockerImagesBoardComponent, DockerNetworkListViewComponent]
 })
 export class DockerModulesModule { }
