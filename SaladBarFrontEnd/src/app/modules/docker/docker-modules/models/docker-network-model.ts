@@ -13,6 +13,9 @@ export class DockerNetworkModel {
   containers!: Containers;
 }
 
+// TODO: tech deb
+// TODO: see what do I have to keep from here and on
+
 export interface Containers {
 }
 
