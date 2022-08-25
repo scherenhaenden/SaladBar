@@ -4,6 +4,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavBarLinksOfSideBarComponent } from './sidebar/nav-bar-links-of-side-bar/nav-bar-links-of-side-bar.component';
 import { IconsModuleModule } from './icons-module/icons-module.module';
+import { SmallAddMenuComponent } from './small-add-menu/small-add-menu.component';
 
 
 
@@ -11,11 +12,12 @@ import { IconsModuleModule } from './icons-module/icons-module.module';
   declarations: [
     NavbarComponent,
     SidebarComponent,
-    NavBarLinksOfSideBarComponent
+    NavBarLinksOfSideBarComponent,
+    SmallAddMenuComponent
   ],
   imports: [
     CommonModule, IconsModuleModule
   ],
-  exports: [SidebarComponent, NavbarComponent, NavBarLinksOfSideBarComponent, IconsModuleModule]
+  exports: [SidebarComponent, NavbarComponent, NavBarLinksOfSideBarComponent, IconsModuleModule, SmallAddMenuComponent]
 })
 export class SharedModuleModule { }
