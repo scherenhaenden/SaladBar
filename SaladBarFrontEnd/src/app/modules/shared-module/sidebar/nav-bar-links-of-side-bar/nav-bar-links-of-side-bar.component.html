@@ -1,5 +1,7 @@
 <li *ngIf="sideBarLinkObject?.nameDescription" class="nav-item">
-  <a class="nav-link" [ngClass]="{'active': sideBarLinkObject.isLinkActive}" aria-current="page" href="#">
+  <a class="nav-link" [ngClass]="{'active': sideBarLinkObject.isLinkActive}" aria-current="page"
+  [routerLink]="[sideBarLinkObject.link]"
+  >
     <ng-container *ngIf="sideBarLinkObject?.icon">
       <app-icon-view [iconTypeModel]="sideBarLinkObject.iconTypeModel" class="feather align-text-bottom"></app-icon-view>
     </ng-container>

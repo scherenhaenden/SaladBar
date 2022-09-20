@@ -6,7 +6,8 @@ import { DockerNetworkListViewComponent } from './docker-modules/docker-network-
 const routes: Routes = [
   {path: '', component: DockerImagesListViewComponent},
   {path: 'images', component: DockerImagesListViewComponent},
-  {path: 'networks', component: DockerNetworkListViewComponent}
+  {path: 'networks', component: DockerNetworkListViewComponent},
+  {path: 'volumes', component: DockerNetworkListViewComponent}
 
 
 ];

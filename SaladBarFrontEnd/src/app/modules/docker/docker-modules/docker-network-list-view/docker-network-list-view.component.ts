@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { DockerCommonServicesService } from '../../services/docker-common-services.service';
-import { CardViewModel } from '../models/card-view-model';
+import { CardViewModel } from '../../../../models/card-view-model';
 import { DockerImageModel } from '../models/docker-image-model';
 import { DockerNetworkModel } from '../models/docker-network-model';
-import { LinkTextPairModel } from '../models/link-text-pair-model';
+import { LinkTextPairModel } from '../../../../models/link-text-pair-model';
+import { DockerVolume } from '../models/docker-volume';
 
 @Component({
   selector: 'app-docker-network-list-view',
@@ -25,7 +26,7 @@ export class DockerNetworkListViewComponent implements OnInit {
   // Get Draft of Load Docker Images
   private async getDockerImages(): Promise<void> {
 
-    const result = await this.dockerCommonServicesService.getDockerNetworks();
+    const result = await this.dockerCommonServicesService.getDockerVolumes();
     console.log('result', result);
 
     for (var image of result) {
@@ -35,15 +36,16 @@ export class DockerNetworkListViewComponent implements OnInit {
     //this.dockerImages = result;
   }
 
-  private transFormDockerNetworkModelToCardViewModel(dockerImage: DockerNetworkModel): CardViewModel {
+
+  private transFormDockerNetworkModelToCardViewModel(dockerVolume: DockerVolume): CardViewModel {
     const cardView = new CardViewModel();
-    cardView.title = dockerImage.containers?.toString();
+    cardView.title = dockerVolume.name?.toString();
 
-    cardView.subtitle1 = dockerImage.name?.toString();
-    cardView.subtitle2 = dockerImage.internal?.toString();
+    cardView.subtitle1 = dockerVolume.driver?.toString();
+    cardView.subtitle2 = dockerVolume.labels?.toString();
 
-    cardView.cardText1 = dockerImage.id?.toString();
-    cardView.cardText2 = dockerImage.ingress?.toString();
+    cardView.cardText1 = dockerVolume.mountpoint?.toString();
+    cardView.cardText2 = dockerVolume.usageData?.toString();
     /*cardView.cardText3 = dockerImage.repoDigests?.toString();
     cardView.cardText4 = dockerImage.sharedSize?.toString();
     cardView.cardText5 = dockerImage.created?.toString();*/

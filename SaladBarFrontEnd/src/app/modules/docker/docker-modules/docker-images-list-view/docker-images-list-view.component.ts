@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiGenericServiceViaHttpClientService } from 'src/app/services/api/api-generic-service-via-http-client.service';
 import { DockerCommonServicesService } from '../../services/docker-common-services.service';
-import { CardViewModel } from '../models/card-view-model';
+import { CardViewModel } from '../../../../models/card-view-model';
 import { DockerImageModel } from '../models/docker-image-model';
-import { LinkTextPairModel } from '../models/link-text-pair-model';
+import { LinkTextPairModel } from '../../../../models/link-text-pair-model';
 
 @Component({
   selector: 'app-docker-images-list-view',

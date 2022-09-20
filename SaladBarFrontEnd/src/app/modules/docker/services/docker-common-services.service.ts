@@ -1,3 +1,4 @@
+import { DockerVolume } from './../docker-modules/models/docker-volume';
 import { Injectable } from '@angular/core';
 import { ApiGenericServiceViaHttpClientService } from 'src/app/services/api/api-generic-service-via-http-client.service';
 import { DockerImageModel } from '../docker-modules/models/docker-image-model';
@@ -19,9 +20,9 @@ export class DockerCommonServicesService {
   }
 
     // Generate Method to get the docker images
-  public async getDockerVolumes(): Promise<object[]> {
+  public async getDockerVolumes(): Promise<DockerVolume[]> {
 
-    const result = await this.apiGenericServiceViaHttpClientService.get('https://localhost:7288/Docker/GetVolumes') as Promise<DockerImageModel[]>;
+    const result = await this.apiGenericServiceViaHttpClientService.get('https://localhost:7288/Docker/GetVolumes') as Promise<DockerVolume[]>;
     return result;
   }
 
