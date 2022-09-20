@@ -1,3 +1,4 @@
+import { DockerVolumesListViewComponent } from './docker-modules/docker-volumes-list-view/docker-volumes-list-view.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DockerImagesListViewComponent } from './docker-modules/docker-images-list-view/docker-images-list-view.component';
@@ -7,7 +8,7 @@ const routes: Routes = [
   {path: '', component: DockerImagesListViewComponent},
   {path: 'images', component: DockerImagesListViewComponent},
   {path: 'networks', component: DockerNetworkListViewComponent},
-  {path: 'volumes', component: DockerNetworkListViewComponent}
+  {path: 'volumes', component: DockerVolumesListViewComponent}
 
 
 ];

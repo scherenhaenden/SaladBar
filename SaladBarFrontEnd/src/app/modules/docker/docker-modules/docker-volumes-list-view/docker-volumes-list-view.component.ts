@@ -21,7 +21,7 @@ export class DockerVolumesListViewComponent implements OnInit {
   public cardView: CardViewModel[] = [];
 
   // Get Draft of Load Docker Images
-  private async getDockerImages(): Promise<void> {
+  private async getDockerVolumes(): Promise<void> {
 
     const result = await this.dockerCommonServicesService.getDockerVolumes();
     console.log('result', result);
