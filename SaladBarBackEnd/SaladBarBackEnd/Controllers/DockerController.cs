@@ -30,6 +30,36 @@ public class DockerController : Controller
     }
     
     [HttpGet]
+    [Route("GetImagesWithoutParentId")]
+    public async Task<List<DockerImageModel>> GetImagesWithoutParentId()
+    {
+        return (await _dockerCommands.GetImages()).Where(x=>String.IsNullOrWhiteSpace(x.ParentId)).ToList();
+    }
+    
+    [HttpGet]
+    [Route("GetImagesDangling")]
+    public async Task<List<DockerImageModel>> GetImagesDangling()
+    {
+        return (await _dockerCommands.GetImages()).Where(x=>x.RepoTags[0] == "<none>:<none>").ToList();
+    }
+    
+    [HttpGet]
+    [Route("DeleteAllImagesDanling")]
+    public async Task<bool> DeleteAllImagesDanling()
+    {
+        await _dockerCommands.DeleteDanglingImages();
+        return true;
+    }
+    
+    [HttpGet]
+    [Route("DeleteAllImagesWithoutParentId")]
+    public async Task<bool> DeleteAllImagesWithoutParentId()
+    {
+        await _dockerCommands.DeleteImagesWithoutParentId();
+        return true;
+    }
+
+    [HttpGet]
     [Route("GetVolumes")]
     public async Task<List<DockerVolumesModel>> GetVolumes()
     {

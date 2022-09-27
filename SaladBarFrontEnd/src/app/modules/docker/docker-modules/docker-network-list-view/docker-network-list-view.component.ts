@@ -12,7 +12,7 @@ import { LinkTextPairModel } from '../../../../models/link-text-pair-model';
 export class DockerNetworkListViewComponent implements OnInit {
 
   constructor(private dockerCommonServicesService: DockerCommonServicesService) {
-    this.getDockerImages();
+    this.getDockerNetworks();
   }
 
   ngOnInit(): void {
@@ -22,7 +22,7 @@ export class DockerNetworkListViewComponent implements OnInit {
   public cardView: CardViewModel[] = [];
 
   // Get Draft of Load Docker Images
-  private async getDockerImages(): Promise<void> {
+  private async getDockerNetworks(): Promise<void> {
 
     const result = await this.dockerCommonServicesService.getDockerNetworks();
     console.log('result', result);
