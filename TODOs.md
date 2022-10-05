@@ -18,16 +18,15 @@
 - [ ] adapt new structure for FE if needed
 - [ ] Adapt new structure for BE is needed
 - [ ] FE: Show List of Volumes
-- [ ] FE: Show List of Networks
 - [ ] FE: Show List of Containers
 
 
 ## Version 0.2
 - [x] Get Lists of Volumes, Networks and Containers via Swagger
 - [X] Adapt new Struckture for Fronend (Services, Modules, etc.)
-- [ ] FE: Show List of Volumes
-- [ ] FE: Show List of Networks
-- [ ] FE: Show List of Containers
+- [x] FE: Show List of Networks
+- [x] Create Generic Card view for Containers, Volumes, Networks
+
 
 ## Version 0.1
 - [x] Create builder and runner (draft)
