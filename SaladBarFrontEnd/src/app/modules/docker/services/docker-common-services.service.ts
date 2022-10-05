@@ -16,33 +16,33 @@ export class DockerCommonServicesService {
   // Generate Method to get the docker images
   public async getDockerImages(): Promise<DockerImageModel[]> {
 
-    const result = await this.apiGenericServiceViaHttpClientService.get('https://localhost:7288/Docker/GetImages') as Promise<DockerImageModel[]>;
+    const result = await this.apiGenericServiceViaHttpClientService.get('/Docker/GetImages') as Promise<DockerImageModel[]>;
     return result;
   }
 
   // Get Images without parent id
   public async getDockerImagesWithoutParentId(): Promise<DockerImageModel[]> {
 
-    const result = await this.apiGenericServiceViaHttpClientService.get('https://localhost:7288/Docker/GetImagesWithoutParentId') as Promise<DockerImageModel[]>;
+    const result = await this.apiGenericServiceViaHttpClientService.get('/Docker/GetImagesWithoutParentId') as Promise<DockerImageModel[]>;
     return result;
   }
 
   // Get Dangling Images
   public async getDockerImagesDanglin(): Promise<DockerImageModel[]> {
 
-    const result = await this.apiGenericServiceViaHttpClientService.get('https://localhost:7288/Docker/GetImagesDangling') as Promise<DockerImageModel[]>;
+    const result = await this.apiGenericServiceViaHttpClientService.get('/Docker/GetImagesDangling') as Promise<DockerImageModel[]>;
     return result;
   }
 
   // Delete all images dangling
   public async deleteAllImagesDangling(): Promise<object> {
-    const result = await this.apiGenericServiceViaHttpClientService.get('https://localhost:7288/Docker/DeleteAllImagesDanling') as Promise<object>;
+    const result = await this.apiGenericServiceViaHttpClientService.get('/Docker/DeleteAllImagesDanling') as Promise<object>;
     return result;
   }
 
   // Delete all images without parent id
   public async deleteAllImagesWithoutParentId(): Promise<object> {
-    const result = await this.apiGenericServiceViaHttpClientService.get('https://localhost:7288/Docker/DeleteAllImagesWithoutParentId') as Promise<object>;
+    const result = await this.apiGenericServiceViaHttpClientService.get('/Docker/DeleteAllImagesWithoutParentId') as Promise<object>;
     return result;
   }
 
@@ -51,21 +51,21 @@ export class DockerCommonServicesService {
     // Generate Method to get the docker images
   public async getDockerVolumes(): Promise<DockerVolume[]> {
 
-    const result = await this.apiGenericServiceViaHttpClientService.get('https://localhost:7288/Docker/GetVolumes') as Promise<DockerVolume[]>;
+    const result = await this.apiGenericServiceViaHttpClientService.get('/Docker/GetVolumes') as Promise<DockerVolume[]>;
     return result;
   }
 
       // Generate Method to get the docker images
   public async getDockerNetworks(): Promise<DockerNetworkModel[]> {
 
-    const result = await this.apiGenericServiceViaHttpClientService.get('https://localhost:7288/Docker/GetNetworks') as Promise<DockerNetworkModel[]>;
+    const result = await this.apiGenericServiceViaHttpClientService.get('/Docker/GetNetworks') as Promise<DockerNetworkModel[]>;
     return result;
   }
 
     // Generate Method to get the docker images
   public async getDockerContainers(): Promise<DockerContainerModel[]> {
 
-    const result = await this.apiGenericServiceViaHttpClientService.get('https://localhost:7288/Docker/GetContainers') as Promise<DockerContainerModel[]>;
+    const result = await this.apiGenericServiceViaHttpClientService.get('/Docker/GetContainers') as Promise<DockerContainerModel[]>;
     return result;
   }
 }
