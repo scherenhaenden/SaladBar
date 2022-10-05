@@ -26,11 +26,20 @@ export class ApiGenericServiceViaHttpClientService {
   }
 }*/
 
+  // Write method to execute a GET request
   public get(route: string, host?: string): Promise<any> {
 
     const url = host ? host + route : environment.apiHost + route;
 
     return lastValueFrom(this.http.get(url));
-
   }
+
+  // Write method to execute a POST request
+  public post(route: string, body: any, host?: string): Promise<any> {
+
+      const url = host ? host + route : environment.apiHost + route;
+
+      return lastValueFrom(this.http.post(url, body));
+  }
+
 }

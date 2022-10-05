@@ -2,7 +2,23 @@
 
 @import "~bootstrap-icons/font/bootstrap-icons.css";
 
+
+
+
+html, body, app-root, router-outlet {
+  min-height: 100% !important;
+  min-width: 100% !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+app-root {
+  display: block;
+  height: 100%;
+}
+
 #body-definition {
   min-height: 100% !important;
   min-width: 100% !important;
+  width: 100% !important;
+  height: 100% !important;
 }
