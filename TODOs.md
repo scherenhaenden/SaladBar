@@ -5,6 +5,10 @@
 
 ## Version 0.2.2 
 
+- [ ] Add Features-List and fill it with the features of the current version and older versions when needed
+- [ ] Adapt new structure for FE if needed
+- [ ] Adapt new structure for BE is needed
+- [ ] Identify Tech debs for next version
 - [ ] FE: Make it run in Docker (simple configuration)
 - [ ] Create directory/config permanent data in docker
 - [ ] Create configuration in docker to run the whole application
@@ -14,11 +18,12 @@
 
 ## Version 0.2.1
 
-- [ ] Identify Tech debs for next version
-- [ ] adapt new structure for FE if needed
-- [ ] Adapt new structure for BE is needed
-- [ ] FE: Show List of Volumes
-- [ ] FE: Show List of Containers
+- [x] Identify Tech debs for next version
+- [x] adapt new structure for FE if needed
+- [x] Adapt new structure for BE is needed
+  -   [x] Update Api service to use variable api url
+- [x] FE: Show List of Volumes
+- [x] FE: Show List of Containers
 
 
 ## Version 0.2

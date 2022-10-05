@@ -2,30 +2,28 @@ import { Component, OnInit } from '@angular/core';
 import { CardViewModel } from 'src/app/models/card-view-model';
 import { LinkTextPairModel } from 'src/app/models/link-text-pair-model';
 import { DockerCommonServicesService } from '../../services/docker-common-services.service';
-import { DockerContainerModel } from '../models/docker-container-model';
-import { DockerNetworkModel } from '../models/docker-network-model';
+import { DockerVolume } from '../models/docker-volume';
 
 @Component({
-  selector: 'app-docker-containers-list-view',
-  templateUrl: './docker-containers-list-view.component.html',
-  styleUrls: ['./docker-containers-list-view.component.css']
+  selector: 'app-docker-volumes-list-view',
+  templateUrl: './docker-volumes-list-view.component.html',
+  styleUrls: ['./docker-volumes-list-view.component.css']
 })
-export class DockerContainersListViewComponent implements OnInit {
+export class DockerVolumesListViewComponent implements OnInit {
 
   constructor(private dockerCommonServicesService: DockerCommonServicesService) {
-    this.getDockerContainers();
+    this.getDockerVolumes();
   }
 
   ngOnInit(): void {
   }
 
-  public dockerNetworkModel: DockerContainerModel[] = [];
   public cardView: CardViewModel[] = [];
 
   // Get Draft of Load Docker Images
-  private async getDockerContainers(): Promise<void> {
+  private async getDockerVolumes(): Promise<void> {
 
-    const result = await this.dockerCommonServicesService.getDockerContainers();
+    const result = await this.dockerCommonServicesService.getDockerVolumes();
     console.log('result', result);
 
     for (var image of result) {
@@ -36,15 +34,15 @@ export class DockerContainersListViewComponent implements OnInit {
   }
 
 
-  private transFormDockerNetworkModelToCardViewModel(dockerContainer: DockerContainerModel): CardViewModel {
+  private transFormDockerNetworkModelToCardViewModel(dockerVolume: DockerVolume): CardViewModel {
     const cardView = new CardViewModel();
-    cardView.title = dockerContainer.id?.toString();
+    cardView.title = dockerVolume.name?.toString();
 
-    cardView.subtitle1 = dockerContainer.names.join()?.toString();
-    cardView.subtitle2 = dockerContainer.command?.toString();
+    cardView.subtitle1 = dockerVolume.driver?.toString();
+    cardView.subtitle2 = dockerVolume.labels?.toString();
 
-    cardView.cardText1 = dockerContainer.id?.toString();
-    cardView.cardText2 = dockerContainer.state?.toString();
+    cardView.cardText1 = dockerVolume.mountpoint?.toString();
+    cardView.cardText2 = dockerVolume.usageData?.toString();
     /*cardView.cardText3 = dockerImage.repoDigests?.toString();
     cardView.cardText4 = dockerImage.sharedSize?.toString();
     cardView.cardText5 = dockerImage.created?.toString();*/

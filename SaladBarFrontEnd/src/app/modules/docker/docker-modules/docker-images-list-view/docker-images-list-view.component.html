@@ -1,18 +1,44 @@
-<div *ngIf="cardView" class="row">
-  <div *ngFor="let item of cardView" class="col-md-6 col-lg-5 col-xl-2">
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">{{item.title}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{item.subtitle1}}</h6>
-        <h6 class="card-subtitle mb-2 text-muted">{{item.subtitle2}}</h6>
-        <p class="card-text">{{item.cardText1}}</p>
-        <p class="card-text">{{item.cardText2}}</p>
-        <p class="card-text">{{item.cardText3}}</p>
-        <p class="card-text">{{item.cardText4}}</p>
-        <p class="card-text">{{item.cardText5}}</p>
-        <a href="{{item.cardLink1.link}}" class="card-link">{{item.cardLink1.text}}</a>
-        <a href="{{item.cardLink2.link}}" class="card-link">{{item.cardLink2.text}}</a>
-      </div>
-    </div>
-  </div>
+<!--Create a Menu with pure html-->
+<div>
+  <h1>m</h1>
+
+  <button (click)="getDockerImages()" type="button" class="btn btn-primary">Show all </button>
+
+
+  <button (click)="getImagesWithoutParentId()" type="button" class="btn btn-primary">{{!showsImagesWithoutParentId ? 'Without Parent Id': 'Show all'}} </button>
+
+  <button (click)="getImagesDanling()" type="button" class="btn btn-primary">{{!showsImagesDanling ? 'Danling': 'Show all'}} </button>
+
+
+  <button (click)="deleteAllImagesWithoutParentId()" type="button" class="btn btn-primary">Delete Images without Parent Id </button>
+
+  <button (click)="deleteAllImagesDangling()" type="button" class="btn btn-primary">Delete Images Dangling </button>
+
+
 </div>
+
+
+<button class="btn btn-danger" (click)="triggerModal(modalData)">Open Modal</button>
+
+<ng-template #modalData let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Angular Bootstrap Modal Popup</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p><strong>Are you sure you want to delete <span class="text-primary">"Agatha Harkness"</span> profile?</strong></p>
+    
+    <p>All data related to west view profile will be removed permanently.
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="modal.close(true)">Delete</button>
+    <button type="button" class="btn btn-danger" (click)="modal.close(false)">Cancel</button>
+  </div>
+</ng-template>
+
+
+
+<app-card-view [cardView]="cardView" ></app-card-view>

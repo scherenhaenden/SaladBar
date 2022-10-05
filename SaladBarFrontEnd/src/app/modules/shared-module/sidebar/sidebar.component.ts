@@ -42,12 +42,49 @@ export class SidebarComponent implements OnInit {
     sideBarLinkObject3.icon = 'Git';
     sideBarLinkObject3.iconTypeModel = new IconTypeModel( IconFamily.Bootstrap, BootstrapFamily.Git);
 
+
+    const sideBarLinkObject4 = new SideBarLinkModel();
+    sideBarLinkObject4.nameDescription = 'Git';
+    sideBarLinkObject4.link = '/Git/Home';
+    sideBarLinkObject4.icon = 'Git';
+    sideBarLinkObject4.iconTypeModel = new IconTypeModel( IconFamily.Bootstrap, BootstrapFamily.Git);
+
     // https://www.npmjs.com/package/@fortawesome/angular-fontawesome
 
+    // Create Bottom for Docker images
+    const dockerImages = this.createSideBarLinkModel('Docker - Images', '/docker/images', 'Airplay', new IconTypeModel( IconFamily.Feather, FeatherFamily.Airplay), false);
+
+    // Create Bottom for Docker Containers
+    const dockerContainers = this.createSideBarLinkModel('Docker - Containers', '/docker/containers', 'Airplay', new IconTypeModel( IconFamily.Feather, FeatherFamily.Airplay), false);
+
+    // Create Bottom for Docker Networks
+    const dockerNetworks = this.createSideBarLinkModel('Docker - Networks', '/docker/networks', 'Airplay', new IconTypeModel( IconFamily.Feather, FeatherFamily.Airplay), false);
+
+    // Create Bottom for Docker Volumes
+    const dockerVolumes = this.createSideBarLinkModel('Docker - Volumes', '/docker/volumes', 'Airplay', new IconTypeModel( IconFamily.Feather, FeatherFamily.Airplay), false);
+
+
     this.sideBarLinkObjects.push(sideBarLinkObject1);
-    this.sideBarLinkObjects.push(sideBarLinkObject2);
+    this.sideBarLinkObjects.push(dockerImages);
+    this.sideBarLinkObjects.push(dockerContainers);
+    this.sideBarLinkObjects.push(dockerNetworks);
+    this.sideBarLinkObjects.push(dockerVolumes);
     this.sideBarLinkObjects.push(sideBarLinkObject3);
 
   }
+
+  // Method to Create SideBarLinkModel
+  public createSideBarLinkModel(nameDescription: string, link: string, icon: string, iconTypeModel: IconTypeModel, isLinkActive: boolean): SideBarLinkModel {
+    const sideBarLinkObject = new SideBarLinkModel();
+
+    sideBarLinkObject.nameDescription = nameDescription;
+    sideBarLinkObject.link = link;
+    sideBarLinkObject.icon = icon;
+    sideBarLinkObject.iconTypeModel = iconTypeModel;
+    sideBarLinkObject.isLinkActive = isLinkActive;
+
+    return sideBarLinkObject;
+  }
+
 
 }

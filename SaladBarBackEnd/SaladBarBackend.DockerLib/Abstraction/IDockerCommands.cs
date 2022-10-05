@@ -11,6 +11,9 @@ public interface IDockerCommands
     // Get Docker Images
     Task<List<DockerImageModel>> GetImages();
     
+    Task DeleteImagesWithoutParentId();
+    Task DeleteDanglingImages();
+    
     Task<List<DockerVolumesModel>> GetVolumes();
     
     Task<List<DockerContainersModel>> GetContainers();
@@ -64,8 +67,9 @@ public class DockerCommands: IDockerCommands
         }).Wait();*/
 
     }
-
-    public async Task<List<DockerImageModel>> GetImages()
+   
+   // Get Docker Images and create Dockerclient if this is null
+   public async Task<List<DockerImageModel>> GetImages()
     {
         if (dockerClient == null)
         {
@@ -80,8 +84,87 @@ public class DockerCommands: IDockerCommands
         }
 
         return dockerImageModels;
-
     }
+   
+   
+   // Delete Images without parent id
+    public async Task DeleteImagesWithoutParentId()
+     {
+          if (dockerClient == null)
+          {
+                dockerClient = new DockerClientConfiguration().CreateClient();
+          }
+          
+          var images = await dockerClient.Images.ListImagesAsync(new ImagesListParameters());
+          var imagesWithoutParentId = images.Where(x => String.IsNullOrWhiteSpace(x.ParentID)).ToList();
+          foreach (var image in imagesWithoutParentId)
+          {
+              try
+              {
+                  await dockerClient.Images.DeleteImageAsync(image.ID, new ImageDeleteParameters());
+              }
+              catch (Exception e)
+              {
+                  string f = e.Message;
+              }
+
+
+
+          }
+     }
+   
+   
+   // Delete Dangling Docker Images and create Dockerclient if this is null
+    public async Task DeleteDanglingImages()
+     {
+          if (dockerClient == null)
+          {
+                dockerClient = new DockerClientConfiguration().CreateClient();
+          }
+          
+          var images = await dockerClient.Images.ListImagesAsync(new ImagesListParameters());
+          foreach (var image in images)
+          {
+                if (image.RepoTags[0] == "<none>:<none>")
+                {
+                    try
+                    {
+                        await dockerClient.Images.DeleteImageAsync(image.ID, new ImageDeleteParameters());
+                    }
+                    catch (Exception e)
+                    {
+                        string f = e.Message;
+                    }
+
+
+                }
+          }
+     }
+    
+    // Get all Images used by containers
+    public async Task<List<DockerImageModel>> GetImagesUsedByContainers()
+    {
+        if (dockerClient == null)
+        {
+            dockerClient = new DockerClientConfiguration().CreateClient();
+        }
+        
+        var containers = await dockerClient.Containers.ListContainersAsync(new ContainersListParameters());
+        var images = await dockerClient.Images.ListImagesAsync(new ImagesListParameters());
+        var dockerImageModels = new List<DockerImageModel>();
+        foreach (var container in containers)
+        {
+            var image = images.FirstOrDefault(x => x.ID == container.ImageID);
+            if (image != null)
+            {
+                dockerImageModels.Add(ImagesListResponseToDockerImageModel(image));
+            }
+        }
+
+        return dockerImageModels;
+    }
+    
+    
 
     public async Task<List<DockerVolumesModel>> GetVolumes()
     {
