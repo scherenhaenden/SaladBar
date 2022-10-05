@@ -11,10 +11,26 @@ export class ApiGenericServiceViaHttpClientService {
   constructor(private http: HttpClient) { }
 
 
+ /* public add(a: number, b: number, c: number): number;
+  public add(a: number, b: number): any;
+  public add(a: string, b: string): any;
 
-  public get(endpoint: string): Promise<any> {
+  public add(a: any, b: any, c?: any): any {
+  if (c) {
+    return a + c;
+  }
+  if (typeof a === 'string') {
+    return `a is ${a}, b is ${b}`;
+  } else {
+    return a + b;
+  }
+}*/
 
-    return lastValueFrom(this.http.get(endpoint));
+  public get(route: string, host?: string): Promise<any> {
+
+    const url = host ? host + route : environment.apiHost + route;
+
+    return lastValueFrom(this.http.get(url));
 
   }
 }
