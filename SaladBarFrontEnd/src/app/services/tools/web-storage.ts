@@ -22,7 +22,7 @@ export class WebStorage {
 
   // Write a method to clear local storage
   public static clear(): void {
-    localStorage.clear();
+    localStorage.clear();    
   }
 
   // Write a method to get the length of local storage
