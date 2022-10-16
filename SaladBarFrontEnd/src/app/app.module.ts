@@ -10,6 +10,7 @@ import { SharedModuleModule } from './modules/shared-module/shared-module.module
 import { HomeViewComponent } from './views/home-view/home-view.component';
 import { LoginViewComponent } from './views/login-view/login-view.component';
 import { ContextViewDashboardComponent } from './views/context-view-dashboard/context-view-dashboard.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ContextViewDashboardComponent } from './views/context-view-dashboard/co
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    FormsModule,
     SharedModuleModule,
     /* For HTTPCLIENT BEGIN*/
     HttpClientModule,

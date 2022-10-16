@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginViewComponent implements OnInit {
 
+  public userEmailAddress: string = "";
+  public userpassword: string = "";
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  // Create method login on click
+  public login(): void {
+    alert();
+    console.log("User email address: " + this.userEmailAddress);
+    console.log("User password: " + this.userpassword);
   }
 
 }
