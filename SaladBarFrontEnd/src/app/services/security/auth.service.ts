@@ -26,6 +26,12 @@ export class AuthService {
     WebStorage.remove('access_token');
   }
 
+  // Write a method to check if a user is logged in
+  public isLoggedIn(): boolean {
+    // Check if there is a token in local storage
+    return WebStorage.get('access_token') ?? false;
+  }
+
 
 
 
