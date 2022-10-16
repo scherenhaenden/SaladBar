@@ -1,4 +1,6 @@
 using SaladBarBackend.DockerLib.Abstraction;
+using SaladBarBackEnd.EnviromentConfigs;
+using SaladBarBackEnd.Services.Middlewares.JWT;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,8 +10,13 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+//var appSettingsSection = Configuration.GetSection("AppSettings");
+var appSettings = builder.Configuration.GetSection("AppSettings");
+
+builder.Services.Configure<AppSettings>(appSettings);
 
 builder.Services.AddScoped<IDockerCommands, DockerCommands>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
 
