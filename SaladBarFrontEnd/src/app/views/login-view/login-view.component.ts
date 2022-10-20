@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginServiceService } from 'src/app/services/api/login/login-service.service';
 
 @Component({
   selector: 'app-login-view',
@@ -10,16 +11,18 @@ export class LoginViewComponent implements OnInit {
   public userEmailAddress: string = "";
   public userpassword: string = "";
 
-  constructor() { }
+  constructor(private loginServiceService: LoginServiceService) { }
 
   ngOnInit(): void {
   }
 
   // Create method login on click
-  public login(): void {
-    alert();
-    console.log("User email address: " + this.userEmailAddress);
-    console.log("User password: " + this.userpassword);
+  public async login(): Promise<void> {
+
+
+    var result = await this.loginServiceService.login(this.userEmailAddress, this.userpassword);
+    console.log(result);
+
   }
 
 }

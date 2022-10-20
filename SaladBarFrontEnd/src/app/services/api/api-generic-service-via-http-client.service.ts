@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { lastValueFrom } from 'rxjs';
+import { HttpHeaders, HttpParams, HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -37,7 +38,16 @@ export class ApiGenericServiceViaHttpClientService {
   // Write method to execute a POST request
   public post(route: string, body: any, host?: string): Promise<any> {
 
+    const httpOptionsNew = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('token')
+      }),
+    };
+
       const url = host ? host + route : environment.apiHost + route;
+
+      console.log('url', url);
 
       return lastValueFrom(this.http.post(url, body));
   }

@@ -1,10 +1,12 @@
 using SaladBarBackend.DockerLib.Abstraction;
 using SaladBarBackEnd.EnviromentConfigs;
+using SaladBarBackEnd.Services.Middlewares.Cors;
 using SaladBarBackEnd.Services.Middlewares.JWT;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddCors();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -30,6 +32,7 @@ if (app.Environment.IsDevelopment())
         .SetIsOriginAllowed((host) => true)
         .AllowCredentials()
     );
+    app.UseCorsMiddleware();
     app.UseSwagger();
     app.UseSwaggerUI();
 }

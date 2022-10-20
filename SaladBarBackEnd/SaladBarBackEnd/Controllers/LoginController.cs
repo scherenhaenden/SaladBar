@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SaladBarBackEnd.Services.Middlewares.JWT;
 
@@ -13,8 +14,11 @@ public class LoginController : Controller
     {
         _userService = userService;
     }
+    [AllowAnonymous]
+    [HttpPost]
+    [Route ("~/Login/authenticate")]
+    
 
-    [HttpPost("authenticate")]
     public IActionResult Authenticate(AuthenticateRequest model)
     {
         var response = _userService.Authenticate(model);
@@ -25,7 +29,7 @@ public class LoginController : Controller
         return Ok(response);
     }
 
-    [Authorize]
+    [Services.Middlewares.JWT.Authorize]
     [HttpGet]
     public IActionResult GetAll()
     {
